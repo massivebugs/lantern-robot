@@ -6,7 +6,7 @@ def heartbeat(seconds: int = 5) -> None:
     """ Flashes the onboard PWR LED for a few seconds """
 
     if (os.geteuid() != 0):
-        print('You need root permissions to run heartbeat()!') 
+        print('You need root permission to run heartbeat()!') 
         return
 
     subprocess.check_output("echo heartbeat | tee /sys/class/leds/led1/trigger > /dev/null", shell=True)
